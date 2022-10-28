@@ -1,5 +1,6 @@
 require 'redmine'
 #require 'dispatcher'
+#register on https://jwplayer.com/ and get Player Library URL https://cdn.jwplayer.com/libraries/PlayerID.js
 
 Redmine::Plugin.register :redmine_embedded_video do
  name 'Redmine Embedded Video'
@@ -27,7 +28,7 @@ Redmine::WikiFormatting::Macros.register do
             file_url = args[0].gsub(/<.*?>/, '').gsub(/&lt;.*&gt;/,'')
         end
 out = <<END
-<script type="text/javascript" src="#{request.protocol}#{request.host_with_port}#{ActionController::Base.relative_url_root}/plugin_assets/redmine_embedded_video/jwplayer.js"></script>
+<script type="text/javascript" src="https://cdn.jwplayer.com/libraries/PlayerID.js"></script>
 <div id="video_#{@num}">Loading the player ...</div>
 <script type="text/javascript">
     jwplayer("video_#{@num}").setup({
